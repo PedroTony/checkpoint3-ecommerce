@@ -15,9 +15,9 @@ RUN mkdir /app
 COPY --from=build /project/target/ecommerce.war /app/ecommerce.war
 
 ENV PROFILE=dev
-
+	
 WORKDIR /app
 
 EXPOSE 8080 
 
-ENTRYPOINT ["java", "-Dspring.profiles.active=${PROFILE}", "-jar", "app.war"]
+ENTRYPOINT ["java", "-Dspring.profiles.active=${PROFILE}", "-jar", "ecommerce.war"]
