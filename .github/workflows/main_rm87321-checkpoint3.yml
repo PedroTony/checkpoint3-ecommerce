@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://index.docker.io/v1/
-        username: ${{ secrets.AzureAppService_ContainerUsername_2fa0288e5d6c440c95f399687f1bc05f }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_e2dc304448364693a39b40f0a8c04f2e }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_9c73c646ce1a4c238a504e50ac834e47 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_98c39a6e65ea43489dcc74c89cc07398 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_2fa0288e5d6c440c95f399687f1bc05f }}/pedrotony/checkpoint3:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_9c73c646ce1a4c238a504e50ac834e47 }}/pedrotony/checkpoint3:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'rm87321-checkpoint3'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_efd091a6d9c441179910e1d90265919b }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_2fa0288e5d6c440c95f399687f1bc05f }}/pedrotony/checkpoint3:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_1cd032283a6f4c87bb1791dbd4262e40 }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_9c73c646ce1a4c238a504e50ac834e47 }}/pedrotony/checkpoint3:${{ github.sha }}'
